@@ -82,7 +82,7 @@
 
 //     return (
 //       <>
-      
+
 //         {/* // loading ? <Loading/> :(   */}
 //         <>
 //             {course && (
@@ -108,7 +108,7 @@
 //             )}
 //         </>
 
-      
+
 //       </>
 //     )
 // }
@@ -238,7 +238,7 @@
 //     const checkoutHandler = async () => {
 //         try {
 //             const token = localStorage.getItem("token");
-            
+
 //             const { data: { order } } = await axios.post(
 //                 `${server}/api/checkout/${params.id}`,
 //                 {},
@@ -328,7 +328,7 @@ const CourseDescription = ({ user }) => {
     const navigate = useNavigate();
 
     const { fetchUser } = UserData();
-    const { fetchCourse, course, fetchCourses,fetchMyCourse } = CourseData();
+    const { fetchCourse, course, fetchCourses, fetchMyCourse } = CourseData();
 
     useEffect(() => {
         fetchCourse(params.id);
@@ -342,14 +342,14 @@ const CourseDescription = ({ user }) => {
                 navigate("/login");
                 return;
             }
-    
+
             console.log("Token:", token);
             const { data: { order } } = await axios.post(
                 `${server}/api/checkout/${params.id}`,
                 {},
                 { headers: { Authorization: `Bearer ${token}` } }
             );
-    
+
             const options = {
                 key: "rzp_test_QgcOFqCvOK6IAq",
                 amount: order.amount,
@@ -368,7 +368,7 @@ const CourseDescription = ({ user }) => {
                             },
                             { headers: { Authorization: `Bearer ${token}` } }
                         );
-    
+
                         await fetchUser();
                         await fetchCourses();
                         await fetchMyCourse();
@@ -380,14 +380,14 @@ const CourseDescription = ({ user }) => {
                 },
                 theme: { color: "#8a4baf" }
             };
-    
+
             const razorpay = new window.Razorpay(options);
             razorpay.open();
         } catch (error) {
             toast.error(error.response?.data?.message || "Checkout failed");
         }
     };
-    
+
     //correct code
     // const checkoutHandler = async () => {
     //     try {
@@ -402,7 +402,7 @@ const CourseDescription = ({ user }) => {
     //             `${server}/api/checkout/${params.id}`,
     //             {},
     //             { headers: { Authorization: `Bearer ${token}` }
-                
+
     //         }
     //         );
 
@@ -471,7 +471,7 @@ const CourseDescription = ({ user }) => {
                         </button>
                     )}
                 </div>
-            ) }
+            )}
         </>
     );
 };
@@ -488,13 +488,13 @@ export default CourseDescription;
 // import { server } from "../../main";
 // import axios from "axios";
 // import toast from "react-hot-toast";
-// import { UserData } from "../../context/UserContext"; 
+// import { UserData } from "../../context/UserContext";
 
 // const CourseDescription = ({ user }) => {
 //     const params = useParams();
 //     const navigate = useNavigate();
 
-//     const { fetchUser } = UserData(); 
+//     const { fetchUser } = UserData();
 //     const { fetchCourse, course, fetchCourses } = CourseData();
 
 //     useEffect(() => {

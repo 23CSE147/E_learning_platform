@@ -38,20 +38,40 @@ export const CourseContextProvider = ({ children }) => {
         }
     }
 
+    //correct code
     async function fetchMyCourse() {
-        try{
-            console.log("hii")
-            const {data}=await axios.get(`${server}/api/mycourse`,{
-      headers:{
-        token:localStorage.getItem("token"),
-      }
+        try {
+            const { data } = await axios.get(`${server}/api/mycourse`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
             });
-            setMyCourse(response.data.courses)
-        }catch(error){
+           // console.log(data.courses)
+            setMyCourse(data.courses); // Use `data.courses` instead of `response.data.courses`
+        } catch (error) {
             console.log(error);
         }
-        
     }
+    
+   
+
+      //previous code
+    // async function fetchMyCourse() {
+    //     try{
+    //         console.log("hii")
+    //         const {data}=await axios.get(`${server}/api/mycourse`,{
+    //   headers:{
+    //     token:localStorage.getItem("token"),
+    //   }
+    //         });
+    //         setMyCourse(response.data.courses)
+    //     }catch(error){
+    //         console.log(error);
+    //     }
+        
+    // }
+
+
     // const fetchCourses = async () => {
     //     try {
     //         const { data } = await axios.get(`${server}/api/course/all`);

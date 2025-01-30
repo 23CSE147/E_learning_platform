@@ -168,7 +168,7 @@
 //              </div>
 //          </div>
 //            )}
-        
+
 //         </div>
 //     )
 // }
@@ -286,7 +286,7 @@ import toast from "react-hot-toast";
 const Account = ({ user }) => {
   const { setUser, setIsAuth } = useContext(UserData) || {}; // ✅ Prevent error if context is undefined
   const navigate = useNavigate();
-  
+
   // ✅ Store user in local state
   const [storedUser, setStoredUser] = useState(null);
 
@@ -329,7 +329,14 @@ const Account = ({ user }) => {
           <div className="profile-info">
             <p><strong>Name - {storedUser.name}</strong></p>
             <p><strong>Email - {storedUser.email}</strong></p>
-            <button onClick={()=>navigate(`/`)} className="common-btn"><MdDashboard /> Dashboard</button>
+            {/* <button onClick={()=>navigate(`/${user._id}/dashboard`)} className="common-btn"><MdDashboard /> Dashboard</button> */}
+            {/* <button onClick={() => navigate(`/${user._id}/dashboard`)} className="common-btn"><MdDashboard />Dashboard</button> */}
+            <button
+              onClick={() => storedUser?._id ? navigate(`/${storedUser._id}/dashboard`) : console.warn("User ID not found")}
+              className="common-btn">
+              <MdDashboard /> Dashboard
+            </button>
+
             <br />
             <button className="common-btn" style={{ background: "red" }} onClick={handleLogout}>
               <AiOutlineLogout /> Logout
