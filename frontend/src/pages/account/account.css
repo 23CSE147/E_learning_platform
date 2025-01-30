@@ -24,35 +24,115 @@
       }
     }
 } */
-
+/* 
 
 .profile {
-  background-color: #f9f9f9; /* Light grey background */
+  background-color: #f9f9f9; 
   padding: 25px;
-  border-radius: 12px; /* Slightly more rounded corners */
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5); /* Stronger shadow effect */
-  width: 28%; /* Slightly narrower */
-  margin: 180px auto; /* Keeps it centered with adjusted top margin */
-}
+  border-radius: 12px; 
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5); 
+  width: 28%; 
+  margin: 180px auto; 
 
 @media (max-width: 763px) {
   .profile {
-      padding: 12px; /* Slightly reduced padding */
-      width: 85%; /* Makes the profile wider on small screens */
-      margin: 100px auto; /* Adjusted top margin */
+      padding: 12px; 
+      width: 85%; 
+      margin: 100px auto; 
   }
 }
 
 .profile-info {
   text-align: left;
-  margin-top: 20px; /* Added more space on top */
+  margin-top: 20px; 
 }
 
 .profile-info p {
   margin-bottom: 12px;
-  color: #444; /* Darker text for readability */
+  color: #444; 
 }
 
 .profile-info strong {
-  color: #a33eeb; /* Unique shade of purple for emphasis */
+  color: #a33eeb; 
+} */
+
+
+.profile {
+  background-color: #f5f5f5; /* Light grey background */
+  padding: 30px;
+  border-radius: 15px; /* Slightly more rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Smooth shadow */
+  width: 30%;
+  margin: 150px auto; /* Centered with balanced spacing */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover Effect */
+.profile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile {
+      padding: 20px;
+      width: 85%;
+      margin: 120px auto;
+  }
+}
+
+/* Profile Info Styling */
+.profile-info {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-info p {
+  margin-bottom: 15px;
+  color: #ffffff; /* Darker text for readability */
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Highlight Important Text */
+.profile-info strong {
+  color: #8a4baf; /* Vibrant purple shade for emphasis */
+  font-weight: 600;
+}
+
+/* Profile Avatar */
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #8a4baf;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effect on Avatar */
+.profile:hover .profile-avatar {
+  transform: scale(1.1);
+}
+
+/* Button Styling */
+.profile-button {
+  background-color: #8a4baf;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  margin-top: 15px;
+}
+
+.profile-button:hover {
+  background-color: #7a3fa2;
 }

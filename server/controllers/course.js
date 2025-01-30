@@ -41,7 +41,7 @@ export const fetchLectures = TryCatch(async (req, res) => {
   const user = await User.findById(req.user._id);
 
   if (user.role === "admin") {
-    return res.json({ lecture });
+    return res.json({ lectures });
   }
   if (!user.subscription.includes(req.params.id))
     return res.status(400).json({
@@ -52,19 +52,42 @@ export const fetchLectures = TryCatch(async (req, res) => {
 })
 
 export const fetchLecture = TryCatch(async (req, res) => {
-  const lecture = await Lecture.findById(req.params.id)
+  const lecture = await Lecture.findById(req.params.id);
+  if (!lecture) {
+    return res.status(404).json({ message: "Lecture not found" });
+  }
+
   const user = await User.findById(req.user._id);
 
   if (user.role === "admin") {
     return res.json({ lecture });
   }
-  if (!user.subscription.includes(req.params.id))
+  if (!user.subscription.includes(lecture.course)) {
     return res.status(400).json({
-      message: "You have not subcribed to this course",
-    })
+      message: "You have not subscribed to this course",
+    });
+  }
 
   res.json({ lecture });
 });
+
+//previous correct code
+// export const fetchLecture = TryCatch(async (req, res) => {
+//   const lecture = await Lecture.findById(req.params.id)
+//   const user = await User.findById(req.user._id);
+
+//   if (user.role === "admin") {
+//     return res.json({ lecture });
+//   }
+//   if (!user.subscription.includes(lecture.course))
+//     return res.status(400).json({
+//       message: "You have not subcribed to this course",
+//     })
+
+//   res.json({ lecture });
+// });
+
+
 
 export const getMyCourses = TryCatch(async (req, res) => {
   const courses = await Courses.find({ _id: req.user.subscription })

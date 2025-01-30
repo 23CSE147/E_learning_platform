@@ -309,7 +309,7 @@ export const UserContextProvider = ({ children }) => {
     }
   }, []);
 
-  async function loginUser(email, password, navigate) {
+  async function loginUser(email, password, navigate,fetchMyCourse) {
     setBtnLoading(true);
     try {
       const { data } = await axios.post(`${server}/api/login`, { email, password });
@@ -319,6 +319,7 @@ export const UserContextProvider = ({ children }) => {
       setUser(data.user);
       setIsAuth(true);
       navigate("/");
+      fetchMyCourse();
     } catch (error) {
       setBtnLoading(false);
       setIsAuth(false);

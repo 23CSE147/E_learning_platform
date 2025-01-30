@@ -3,9 +3,44 @@ import "./CourseCard.css"
 import { server } from "../../main";
 import { UserData } from "../../context/UserContext";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import axios from "axios";
+import { CourseData } from "../../context/CourseContext";
 const CourseCard = ({ course }) => {
-    const navigate = useNavigate()
-    const { user, isAuth } = UserData()
+    const navigate = useNavigate();
+    const { user, isAuth } = UserData();
+
+    const { fetchCourses } = CourseData();
+
+    const deleteHandler = async (id) => {
+        if (!user || user.role !== "admin") {
+            toast.error("Unauthorized: Only admins can delete courses.");
+            return;
+        }
+
+        if (confirm("Are you sure you want to delete this course?")) {
+            try {
+                const token = localStorage.getItem("token");
+                if (!token) {
+                    toast.error("No token found. Please log in again.");
+                    return;
+                }
+
+                const { data } = await axios.delete(`${server}/api/course/${id}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+
+                toast.success(data.message);
+                fetchCourses();
+            } catch (error) {
+                console.error("Error deleting course:", error.response?.data || error.message);
+                toast.error(error.response?.data?.message || "Failed to delete course");
+            }
+        }
+    };
+
     return (
         <div className="course-card">
             <img src={`${server}/${course.image}`} alt="" className="course-image" />
@@ -49,8 +84,8 @@ const CourseCard = ({ course }) => {
             )}
             <br />
             {
-                user && user.role==="admin" && (<button className="common-btn" style={{background:"red"}}>Delete</button>
-           ) }
+                user && user.role === "admin" && (<button onClick={() => deleteHandler(course._id)} className="common-btn" style={{ background: "red" }}>Delete</button>
+                )}
         </div>
     );
 };

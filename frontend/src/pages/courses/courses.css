@@ -1,4 +1,4 @@
-.courses{
+/* .courses{
     padding: 80px;
     text-align: center;
     min-height:60vh ;
@@ -18,4 +18,110 @@
     }
 
 
+} */
+
+
+.courses {
+    padding: 80px 20px;
+    text-align: center;
+    min-height: 60vh;
+    background-color: #f9f9f9; /* Light background for contrast */
+}
+
+/* Section Title */
+.courses h2 {
+    font-size: 36px;
+    color: #8a4baf;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Course Container */
+.course-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Individual Course Card */
+.course-card {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    width: 280px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hover Effect */
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Course Image */
+.course-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Course Title */
+.course-card h3 {
+    font-size: 22px;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* Course Description */
+.course-card p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+/* Button Styling */
+.course-card .btn {
+    display: inline-block;
+    padding: 10px 18px;
+    font-size: 16px;
+    background-color: #8a4baf;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+/* Button Hover */
+.course-card .btn:hover {
+    background-color: #6f3c91;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .course-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .course-card {
+        width: 90%;
+    }
+
+    .courses h2 {
+        font-size: 28px;
+    }
 }

@@ -1,4 +1,4 @@
-.course-description{
+/* .course-description{
     padding:80px 0;
     text-align: center;
     min-height: 55vh;
@@ -41,5 +41,95 @@
             max-width: 800px;
             margin: 0 auto;
         }
+    }
+} */
+
+
+.course-description {
+    padding: 80px 0;
+    text-align: center;
+    min-height: 55vh;
+    background-color: #f9f9f9; /* Soft background for better readability */
+}
+
+/* Course Header */
+.course-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px; /* Increased spacing for better alignment */
+    margin-bottom: 50px;
+    padding: 20px;
+}
+
+/* Course Image */
+.course-image {
+    width: 250px; /* Slightly larger for better visibility */
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect on Image */
+.course-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Course Info Styling */
+.course-info {
+    text-align: left;
+    max-width: 500px;
+}
+
+/* Course Title */
+.course-info h2 {
+    font-size: 28px;
+    color: #8a4baf; /* Matching the theme color */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Course Details */
+.course-info p {
+    font-size: 16px;
+    color: #555;
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+/* Course Description */
+.course-description p {
+    font-size: 18px;
+    color: #444;
+    text-align: center;
+    max-width: 850px;
+    margin: 20px auto;
+    line-height: 1.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .course-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .course-image {
+        width: 90%;
+        height: auto;
+    }
+
+    .course-info {
+        text-align: center;
+    }
+
+    .course-description p {
+        font-size: 16px;
+        max-width: 90%;
     }
 }
