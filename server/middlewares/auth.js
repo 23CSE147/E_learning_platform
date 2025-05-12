@@ -107,34 +107,6 @@ export const authMiddleware = (req, res, next) => {
   }
 };
 
-// export const isAuth = async (req, res, next) => {
-//   try {
-//     // Check for token in `Authorization` header, `token` header, or `req.query`
-//     const authHeader = req.headers.authorization;
-//     const token =  
-//       authHeader?.split(" ")[1] || req.headers.token || req.query.token;
-
-//     if (!token) {
-//       return res.status(403).json({ message: "Please login" });
-//     }
-
-//     // Verify the token
-//     const decodedData = jwt.verify(token, process.env.JWT_SECRET_KEY);
-//     console.log("Decoded Data in isAuth Middleware:", decodedData); // Debug log
-
-//     // Attach user data to the request
-//     const user = await User.findById(decodedData.id);
-//     if (!user) {
-//       return res.status(404).json({ message: "User not found" });
-//     }
-
-//     req.user = user; // Attach user to req
-//     next();
-//   } catch (error) {
-//     console.error("Auth Middleware Error:", error.message);
-//     res.status(403).json({ message: "Invalid or expired token" });
-//   }
-// };
 
 
 
@@ -172,32 +144,6 @@ export const isAuth = async (req, res, next) => {
     return res.status(401).json({ message: "Invalid or expired token" });
   }
 };
-
-
-
-// export const isAuth = async (req, res, next) => {
-//   try {
-//     const authHeader = req.headers.authorization; // ✅ Correct header
-//     console.log("Auth Header:", authHeader);
-
-//     if (!authHeader || !authHeader.startsWith("Bearer ")) {
-//       return res.status(403).json({ message: "No token provided" });
-//     }
-
-//     const token = authHeader.split(" ")[1]; // ✅ Extract token after "Bearer"
-//     console.log("Extracted Token:", token);
-
-//     const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
-
-//     req.user = await User.findById(decoded.id).select("-password"); // Attach user to request
-
-//     next();
-//   } catch (error) {
-//     return res.status(401).json({ message: "Invalid or expired token" });
-//   }
-// };
-
-
 
 
 

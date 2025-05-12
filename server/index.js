@@ -63,7 +63,8 @@ import cors from 'cors';
 import Razorpay from 'razorpay';
 //import paymentRoutes from "./routes/payment.js";
 
-
+console.log("✅ Razorpay Key:", process.env.Razorpay_key);
+console.log("✅ Razorpay Secret:", process.env.Razorpay_Secret);
 dotenv.config();
 export const instance=new Razorpay({
     key_id:process.env.Razorpay_key,

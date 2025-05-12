@@ -57,17 +57,23 @@
 } */
 
 
+
+/* Profile Card Container */
 .profile {
-  background-color: #f5f5f5; /* Light grey background */
+  background-color: #ffffff;
   padding: 30px;
-  border-radius: 15px; /* Slightly more rounded corners */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Smooth shadow */
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   width: 30%;
-  margin: 150px auto; /* Centered with balanced spacing */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 150px auto;
   text-align: center;
   position: relative;
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: slideFadeIn 1s ease-out forwards;
+  animation-delay: 0.2s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Hover Effect */
@@ -76,35 +82,16 @@
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
   .profile {
-      padding: 20px;
-      width: 85%;
-      margin: 120px auto;
+    padding: 20px;
+    width: 85%;
+    margin: 120px auto;
   }
 }
 
-/* Profile Info Styling */
-.profile-info {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.profile-info p {
-  margin-bottom: 15px;
-  color: #ffffff; /* Darker text for readability */
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-/* Highlight Important Text */
-.profile-info strong {
-  color: #8a4baf; /* Vibrant purple shade for emphasis */
-  font-weight: 600;
-}
-
-/* Profile Avatar */
+/* Avatar */
 .profile-avatar {
   width: 100px;
   height: 100px;
@@ -115,12 +102,33 @@
   transition: transform 0.3s ease-in-out;
 }
 
-/* Hover Effect on Avatar */
+/* Pulse on hover */
 .profile:hover .profile-avatar {
-  transform: scale(1.1);
+  animation: pulseAvatar 0.6s ease-in-out;
 }
 
-/* Button Styling */
+/* Profile Info */
+.profile-info {
+  text-align: center;
+  margin-top: 20px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.profile-info p {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.profile-info strong {
+  color: #8a4baf;
+  font-weight: 600;
+}
+
+/* Button */
 .profile-button {
   background-color: #8a4baf;
   color: white;
@@ -131,8 +139,127 @@
   cursor: pointer;
   transition: background 0.3s ease-in-out;
   margin-top: 15px;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 0.8s;
 }
 
 .profile-button:hover {
   background-color: #7a3fa2;
+}
+.logout-button {
+  background-color: #e63946; /* Unique vibrant red */
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(230, 57, 70, 0.3);
+}
+
+.logout-button:hover {
+  background-color: #c62828; /* Deeper red on hover */
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(198, 40, 40, 0.4);
+}
+
+.logout-button:active {
+  transform: scale(0.98);
+  background-color: #b71c1c;
+}/* Dashboard Button */
+.user-dashboard-btn {
+  background-color: #8a5baf; /* Base color (#8a5baf) */
+  color: white;
+  padding: 10px 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: bold;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(138, 91, 175, 0.3);
+}
+
+.user-dashboard-btn:hover {
+  background-color: #7a4ca0; /* Darker variant for hover */
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(122, 76, 160, 0.4);
+}
+
+.user-dashboard-btn:active {
+  transform: scale(0.98);
+  background-color: #6d4590; /* Even darker variant for active */
+}
+
+
+/* Admin Dashboard Button */
+.admin-dashboard-btn {
+  background-color: #8a5baf; /* Same base color (#8a5baf) */
+  color: white;
+  padding: 10px 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: bold;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(138, 91, 175, 0.3);
+}
+
+.admin-dashboard-btn:hover {
+  background-color: #7a4ca0; /* Darker variant for hover */
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(122, 76, 160, 0.4);
+}
+
+.admin-dashboard-btn:active {
+  transform: scale(0.98);
+  background-color: #6d4590; /* Even darker variant for active */
+}
+
+
+
+
+/* Keyframes */
+
+/* Profile slide-in fade */
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Avatar pulse */
+@keyframes pulseAvatar {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Fade Up for info */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

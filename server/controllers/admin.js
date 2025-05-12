@@ -169,3 +169,43 @@ export const getAllStats=TryCatch(async(req,res)=>{
     stats,
   })
 })
+
+export const getAllUser=TryCatch(async(req,res)=>{
+  const users=await User.find({_id:{$ne:req.user._id}}).select("-password");
+  res.json({
+    users,
+  })
+})
+export const deleteUser = TryCatch(async (req, res) => {
+  const { id } = req.params;
+
+  const user = await User.findById(id);
+  if (!user) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
+  await User.deleteOne({ _id: id });
+
+  res.status(200).json({
+    message: "User deleted successfully",
+  })
+});
+export const updateRole=TryCatch(async(req,res)=>{
+  const user =await User.findById(req.params.id)
+
+  if(user.role==="user"){
+    user.role="admin"
+    await user.save()
+    return res.json({
+      message:"Role Updated to Admin",
+    })
+  }
+
+  if(user.role==="admin"){
+    user.role="user"
+    await user.save()
+    return res.json({
+      message:"Role Updated",
+    })
+  }
+});
