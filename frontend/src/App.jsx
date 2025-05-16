@@ -17,7 +17,7 @@ import CourseStudy from "./pages/coursestudy/CourseStudy";
 import Lecture from "./pages/lecture/Lecture";
 import AdminDashboard from "./admin/Dashboard/AdminDashboard";
 import AdminCourses from "./admin/Courses/AdminCourses";
-import AdminUsers from "./admin/Users/Adminusers";
+import AdminUsers from "./admin/Users/AdminUsers";
 
 const App = () => {
   const { isAuth, user } = UserData();
