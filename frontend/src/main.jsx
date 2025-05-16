@@ -4,7 +4,7 @@ import App from './App.jsx'
 import { UserContextProvider } from './context/UserContext.jsx'
 import { CourseContextProvider } from './context/CourseContext.jsx';
 ``
-export const server = 'https://e-learning-platform-7jc2.onrender.com'; // This is your API server URL
+export const server = 'https://e-learning-platform-7jc2.onrender.com';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(

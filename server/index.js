@@ -53,6 +53,7 @@
 
 import express from 'express';
 import dotenv from 'dotenv';
+dotenv.config();
 import { connectDb } from './database/db.js';
 import userRoutes from './routes/user.js';
 import courseRoutes from './routes/course.js'
@@ -64,7 +65,6 @@ import Razorpay from 'razorpay';
 
 console.log("✅ Razorpay Key:", process.env.Razorpay_key);
 console.log("✅ Razorpay Secret:", process.env.Razorpay_Secret);
-dotenv.config();
 export const instance=new Razorpay({
     key_id:process.env.Razorpay_key,
     key_secret:process.env.Razorpay_Secret,
