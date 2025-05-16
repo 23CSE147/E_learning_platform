@@ -72,8 +72,7 @@ const CourseStudy = ({ user }) => {
                             <h2>{course.title}</h2><br/>
                             <h3>Course Description</h3><br/>
                             <p>{course.description}</p><br/>
-                            {/* <p>by - {course.createdBy}</p>
-                            <p>Duration - {course.duration} weeks</p> */}
+                            
 
                             <p className="course-meta created-by">Instructor: - {course.createdBy}</p><br />
                             <p className="course-meta duration">Duration of course: - {course.duration} weeks</p>

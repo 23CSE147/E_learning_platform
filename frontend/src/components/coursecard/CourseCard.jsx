@@ -107,14 +107,14 @@ const CourseCard = ({ course }) => {
   const { user, isAuth } = UserData();
   const { fetchCourses, fetchMyCourse, myCourseIds } = CourseData();
 
-  // Force refresh myCourseIds after auth or user change
+  
   useEffect(() => {
     if (isAuth && user) {
       fetchMyCourse();
     }
   }, [isAuth, user, fetchMyCourse]);
 
-  // Debug subscription status
+ 
   console.log("CourseCard - Course ID:", course._id);
   console.log("CourseCard - Is subscribed:", myCourseIds.has(course._id));
   console.log("CourseCard - MyCourseIds:", Array.from(myCourseIds));

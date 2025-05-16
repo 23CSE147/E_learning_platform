@@ -2,7 +2,7 @@
 
 
 import express from "express";
-//import { getAllCourses, getSingleCourse } from "../controllers/course.js";
+
 import {
   getAllCourses,
   getSingleCourse,
@@ -13,7 +13,7 @@ import {
   paymentVerification,
 } from "../controllers/course.js";
 import { isAuth } from "../middlewares/auth.js";
-//import { checkout, paymentVerification } from "../controllers/course.js";
+
 
 const router = express.Router()
 router.get('/course/all', getAllCourses);

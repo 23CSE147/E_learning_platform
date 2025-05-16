@@ -97,7 +97,7 @@ export const UserContextProvider = ({ children }) => {
 
       const { data } = await axios.get(`${server}/api/user/me`, {
         headers: {
-          Authorization: `Bearer ${token}`, // Use Bearer token
+          Authorization: `Bearer ${token}`, 
         },
       });
 
@@ -106,7 +106,7 @@ export const UserContextProvider = ({ children }) => {
       setLoading(false);
     } catch (error) {
       console.log("Error fetching user data:", error.message);
-      localStorage.removeItem("token"); // Remove invalid token
+      localStorage.removeItem("token"); 
       localStorage.removeItem("user");
       setIsAuth(false);
       setLoading(false);

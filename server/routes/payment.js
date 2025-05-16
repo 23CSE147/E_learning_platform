@@ -3,8 +3,6 @@ import { processPayment } from "../controllers/payment.js";
 import { isAuth } from "../middlewares/auth.js";
 
 const router = express.Router();
-
-// POST endpoint to process payment
 router.post("/payment", isAuth, processPayment);
 
 export default router;

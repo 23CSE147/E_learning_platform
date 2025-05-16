@@ -38,23 +38,22 @@ const Account = ({ user }) => {
   console.log("User Data:", storedUser);
 
   const handleLogout = () => {
-    // Clear user data from localStorage and context
     localStorage.removeItem("user");
     localStorage.removeItem("token");
-    setUser && setUser(null); // Prevent calling undefined function
+    setUser && setUser(null); 
     setIsAuth && setIsAuth(false);
     setStoredUser(null);
     toast.success("Logged Out");
 
-    // Navigate to the login page
+  
     navigate("/login");
   };
 if (!storedUser) {
-    return null; // ✅ Prevent component from rendering until redirect happens
+    return null; 
   }
   return (
     <div>
-      {storedUser ? ( // ✅ Check storedUser instead of user
+      {storedUser ? ( 
         <div className="profile">
           <h2>My Profile</h2>
           <div className="profile-info">
@@ -86,7 +85,7 @@ if (!storedUser) {
       ) 
       : 
       (
-        navigate("/login") // ✅ Redirect if no user is found
+        navigate("/login") 
     )
       }
 

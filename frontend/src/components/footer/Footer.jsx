@@ -8,7 +8,7 @@ const Footer = () => {
         <footer>
             <div className="footer-content">
                 <p>
-                    &copy;2025 Your E-Learning Platform.All rights reserved.<br />Made with 🤍 <a href="">Saravanan</a>
+                    &copy;2025 Your Learnico.All rights reserved.<br />Made with 🤍 <a href="">Saravanan</a>
                 </p>
                 <div className="social-links">
                     <a href="">

@@ -33,14 +33,13 @@
 import React, { useState } from "react";
 import "./auth.css";
 import { Link, useNavigate } from "react-router-dom";
-import { UserData } from "../../context/UserContext"; // Import UserContext
+import { UserData } from "../../context/UserContext"; 
 import axios from "axios";
 import toast from "react-hot-toast";
-import { server } from "../../main"; // Ensure the correct import path
-
+import { server } from "../../main"; 
 const Register = () => {
   const navigate = useNavigate();
-  const { setUser, setIsAuth } = UserData(); // Get user context
+  const { setUser, setIsAuth } = UserData(); 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -59,7 +58,7 @@ const Register = () => {
       setUser(data.user);
       setIsAuth(true);
 
-      navigate("/login"); // Redirect to home page
+      navigate("/login"); 
     } catch (error) {
       toast.error(error.response?.data?.message || "Registration failed");
     } finally {

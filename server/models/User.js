@@ -92,11 +92,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "user",
     },
-    // subscription: [
-    //   {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: "Course",
-    //   },
     subscription: [
       {
         type: mongoose.Schema.Types.ObjectId,

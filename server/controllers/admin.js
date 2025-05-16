@@ -58,15 +58,6 @@ export const addLectures =TryCatch(async(req,res)=>{
     })
 })
 
-// export const deleteLecture = TryCatch(async(req,res)=>{
-//   const lecture = await Lecture.findById(req.params.id)
-  
-//   rm(lecture.video,()=>{
-//     console.log("Video Deleted")
-//   })
-//    await lecture.deleteOne();
-//    res.json({message:"Lecture Deleted"});
-// });
 
 export const deleteLecture = TryCatch(async (req, res) => {
   const lecture = await Lecture.findById(req.params.id);
@@ -88,29 +79,6 @@ export const deleteLecture = TryCatch(async (req, res) => {
 });
 
 
-// const unlinkAsync=promisify(fs.unlink)
-
-// export const deleteCourse = TryCatch(async(req,res)=>{
-//   const course = await Courses.findById(req.params.id)
-  
-//   const lectures = await Lecture.find({course:course._id})
-  
-//   await Promise.all(lectures.map(async(lecture)=>{
-//        await unlinkAsync(lecture.video);
-//        console.log("Video Deleted");
-//   }))
-   
-//   rm (course.image,()=>{
-//     console.log("image Deleted")
-//   })
-//   await Lecture.find({course:req.params.id}).deleteMany()
-//   await course.deleteOne()
-//   await User.updateMany({},{$pull:{subscription:req.params.id}});
-
-//   res.json({
-//     message:"Course Delete",
-//   })
-// })
 
 const unlinkAsync = promisify(fs.unlink);
 

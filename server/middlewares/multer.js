@@ -16,19 +16,3 @@ const storage = multer.diskStorage({
 
 export const uploadFiles=multer({storage}).single("file");
 
-
-// const upload = multer({ storage });
-
-// export const uploadFiles = (req, res, next) => {
-//   const uploadSingle = upload.single("file");
-
-//   uploadSingle(req, res, (err) => {
-//     if (err) {
-//       console.error("Multer Error:", err);
-//       return res.status(400).json({ message: "File upload failed", error: err.message });
-//     }
-
-//     console.log("Uploaded File:", req.file); 
-//     next();
-//   });
-// };

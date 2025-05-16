@@ -419,7 +419,7 @@ const CourseDescription = ({ user }) => {
     }
   };
 
-  // Debug subscription status
+  
   useEffect(() => {
     if (user && course) {
       console.log("CourseDescription - User subscription:", user.subscription);

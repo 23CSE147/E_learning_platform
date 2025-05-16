@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 
 const Lecture = ({ user }) => {
     const [lectures, setLectures] = useState([]);
-    const [lecture, setLecture] = useState({}); // ✅ Changed [] to {} to store an object
+    const [lecture, setLecture] = useState({}); 
     const [show, setShow] = useState(false);
     const params = useParams();
     const navigate = useNavigate()
@@ -48,7 +48,7 @@ const Lecture = ({ user }) => {
     }
 
     async function fetchLecture(id) {
-        const token = localStorage.getItem("token"); // ✅ Defined token inside function
+        const token = localStorage.getItem("token"); 
 
         if (!token) {
             console.error("No token found. User is not authenticated.");

@@ -9,7 +9,7 @@ import About from "./pages/about/About";
 import Account from "./pages/account/Account";
 import { UserData } from "./context/UserContext";
 import Courses from "./pages/courses/Courses";
-import { CourseContextProvider } from "./context/CourseContext"; // ✅ Import CourseContextProvider
+import { CourseContextProvider } from "./context/CourseContext"; 
 import CourseDescription from "./pages/coursedescription/CourseDescription";
 import PaymentSuccess from "./pages/paymentsuccess/PaymentSuccess";
 import Dashboard from "./pages/dashboard/Dashboard";
@@ -24,7 +24,7 @@ const App = () => {
   console.log("isAuth:", isAuth, "User:", user);
 
   return (
-    <CourseContextProvider> {/* ✅ Wrap entire app with provider */}
+    <CourseContextProvider> 
       <BrowserRouter>
         <Header isAuth={isAuth} />
         <Routes>
@@ -34,7 +34,6 @@ const App = () => {
           <Route path="/account" element={isAuth ? <Account user={user}/> : <Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={isAuth ? <Home /> : <Register />} />
-          {/* <Route path="/course/:id" element={isAuth ? <CourseDescription user={user}/>:<Login />} */}
           <Route path="/course/:id" element={isAuth ? <CourseDescription user={user}/> : <Login />} />
           <Route path="/payment-success/:id" element={isAuth ? <PaymentSuccess user={user}/> : <Login />}/>
           <Route path="/:id/dashboard" element={isAuth ? <Dashboard user={user}/> : <Login />}/>

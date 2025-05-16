@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { CourseData } from "../../context/CourseContext";
-import "./courses.css";  // Corrected path
+import "./courses.css";  
 
 import CourseCard from '../../components/coursecard/CourseCard';
 
 const Courses = () => {
     const { courses } = CourseData();
     console.log(courses);
-    // Log courses after they've been fetched
+   
     useEffect(() => {
-        console.log("Courses in Context:", courses);  // Log when courses are fetched and updated
-    }, [courses]);  // This will run whenever the courses state is updated
+        console.log("Courses in Context:", courses);  
+    }, [courses]);  
 
     return (
         <div className="courses">

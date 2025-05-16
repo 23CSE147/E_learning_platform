@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./auth.css";
 import { Link, useNavigate } from "react-router-dom";
-import { UserData } from "../../context/UserContext"; // Ensure correct import path
+import { UserData } from "../../context/UserContext"; 
 import { CourseData } from "../../context/CourseContext";
 
 const Login = () => {

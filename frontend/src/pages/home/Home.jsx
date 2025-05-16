@@ -9,7 +9,7 @@ const Home =()=>{
         <div>
             <div className='home'>
                 <div className='home-content'>
-                <h1>Welcome to our E-Learning PlatForm</h1>
+                <h1>Welcome to our Learnico</h1>
                 <p>Learn,Grow,Excel</p>
                 <button onClick={()=>{navigate("/courses")}}className='common-btn'>
                 Get Started <FaChartLine className="chart-icon"/></button>

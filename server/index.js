@@ -58,10 +58,9 @@ import userRoutes from './routes/user.js';
 import courseRoutes from './routes/course.js'
 import adminRoutes from'./routes/admin.js';
 import orderRoutes from "./routes/order.js";
-// import paymentRoutes from "./routes/payment.js";
 import cors from 'cors';
 import Razorpay from 'razorpay';
-//import paymentRoutes from "./routes/payment.js";
+
 
 console.log("✅ Razorpay Key:", process.env.Razorpay_key);
 console.log("✅ Razorpay Secret:", process.env.Razorpay_Secret);
@@ -78,7 +77,7 @@ app.use(cors());
 app.use("/uploads",express.static("uploads"))
 app.use("/api", orderRoutes);
 
-//app.use("/api", paymentRoutes);
+
 const port = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {

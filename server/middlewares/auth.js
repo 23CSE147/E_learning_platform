@@ -110,35 +110,34 @@ export const authMiddleware = (req, res, next) => {
 
 
 
-//correct code
+
 
 export const isAuth = async (req, res, next) => {
   try {
-    // Extract the Authorization token
+   
     const token = req.headers.authorization;
     console.log("Token:", token);
 
-    // Check if token exists
+
     if (!token) {
       return res.status(401).json({ message: "No token provided" });
     }
 
-    // Extract the actual token if it follows 'Bearer <token>' format
+  
     const actualToken = token.startsWith("Bearer ") ? token.split(" ")[1] : token;
     console.log("Extracted Token:", actualToken);
 
-    // Verify the token
     const decoded = jwt.verify(actualToken, process.env.JWT_SECRET_KEY);
     
-    // Fetch user from DB (excluding password)
+   
     const user = await User.findById(decoded.id).select("-password");
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
 
-    req.user = user; // Attach user to request object
+    req.user = user;
 
-    next(); // Proceed to next middleware or route handler
+    next(); 
   } catch (error) {
     console.error("Auth Middleware Error:", error);
     return res.status(401).json({ message: "Invalid or expired token" });

@@ -199,7 +199,7 @@ const categories = [
 const AdminCourses = ({ user }) => {
   const navigate = useNavigate();
 
-  // Redirect to home page if user is not admin
+
   if (user && user.role !== "admin") return navigate("/");
 
   const [title, setTitle] = useState("");
@@ -212,7 +212,7 @@ const AdminCourses = ({ user }) => {
   const [imagePrev, setImagePrev] = useState("");
   const [btnLoading, setBtnLoading] = useState(false);
 
-  const { courses, fetchCourses } = CourseData(); // Access courses from context
+  const { courses, fetchCourses } = CourseData(); 
 
   const changeImageHandler = (e) => {
     const file = e.target.files[0];
@@ -226,7 +226,7 @@ const AdminCourses = ({ user }) => {
     };
   };
 
-  // Submit handler to add a new course
+  
   const submitHandler = async (e) => {
     e.preventDefault();
     setBtnLoading(true);
@@ -250,7 +250,7 @@ const AdminCourses = ({ user }) => {
 
       toast.success(data.message);
       setBtnLoading(false);
-      await fetchCourses(); // Re-fetch courses after adding a new one
+      await fetchCourses(); 
       setImage("");
       setTitle("");
       setDescription("");
@@ -258,7 +258,7 @@ const AdminCourses = ({ user }) => {
       setImagePrev("");
       setCreatedBy("");
       setPrice("");
-      setCategory(""); // Reset form
+      setCategory(""); 
     } catch (error) {
       toast.error(error.response.data.message);
       setBtnLoading(false);
@@ -266,8 +266,8 @@ const AdminCourses = ({ user }) => {
   };
 
   useEffect(() => {
-    fetchCourses(); // Fetch courses when the component mounts
-  }, [fetchCourses]); // Only re-run if fetchCourses changes
+    fetchCourses(); 
+  }, [fetchCourses]); 
 
   return (
     <Layout>
