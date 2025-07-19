@@ -63,11 +63,11 @@ import cors from 'cors';
 import Razorpay from 'razorpay';
 
 
-console.log("✅ Razorpay Key:", process.env.Razorpay_key);
-console.log("✅ Razorpay Secret:", process.env.Razorpay_Secret);
+console.log("✅ Razorpay Key:", process.env.RAZORPAY_KEY);
+console.log("✅ Razorpay Secret:", process.env.RAZORPAY_SECRET);
 export const instance=new Razorpay({
-    key_id:process.env.Razorpay_key,
-    key_secret:process.env.Razorpay_Secret,
+    key_id:process.env.RAZORPAY_KEY,
+    key_secret:process.env.RAZORPAY_SECRET,
 })
 
 
