@@ -63,12 +63,20 @@ import cors from 'cors';
 import Razorpay from 'razorpay';
 
 
-console.log("✅ Razorpay Key:", process.env.RAZORPAY_KEY);
-console.log("✅ Razorpay Secret:", process.env.RAZORPAY_SECRET);
-export const instance=new Razorpay({
-    key_id:process.env.RAZORPAY_KEY,
-    key_secret:process.env.RAZORPAY_SECRET,
-})
+
+console.log("RAZORPAY_KEY =", process.env.RAZORPAY_KEY);
+console.log("RAZORPAY_SECRET =", process.env.RAZORPAY_SECRET);
+
+if (!process.env.RAZORPAY_SECRET) {
+  console.error("❗ RAZORPAY_SECRET is undefined ❗");
+} else {
+  console.log("✅ RAZORPAY_SECRET Loaded ✅");
+}
+
+export const instance = new Razorpay({
+  key_id: process.env.RAZORPAY_KEY,
+  key_secret: process.env.RAZORPAY_SECRET,
+});
 
 
 const app = express();
